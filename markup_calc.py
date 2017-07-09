@@ -13,6 +13,7 @@ def circuit_type_input():
     return float(speed)
 
 speed = circuit_type_input()
+#defines the speed variable needed for Ethernet circuits
 
 term = input('What is the desired term length, in years?')
 
@@ -24,8 +25,9 @@ def term_modifier():
     elif term == "3":
         mod = 24.0
     return mod
-
+#defines the term modifier, based on the term length in years
 mod = term_modifier()
+
 price = 0
 def mrc_markup():
     if circuit_type == "T1":
@@ -37,6 +39,7 @@ def mrc_markup():
     else:
         print ("error")
     return price
+#marks up the MRC based on the NRC and circuit speed
 
 def nrc_markup():
     if circuit_type == "T1":
@@ -52,9 +55,11 @@ def nrc_markup():
     else:
         print ("error")
     return nrr
+#marks up the NRC based on circuit type
 
 def roundup(x):
     return int(math.ceil(x / 25.0)) * 25
+#rounds the resulting MRC price to the nearest $25 dollar increment
 
 mrr = mrc_markup()
 mumrr = roundup(mrr)
@@ -62,3 +67,4 @@ nrr = nrc_markup()
 
 print('The marked up MRR is $%.2f' % mumrr)
 print('The marked up NRR is $%.2f' % nrr)
+#prints the results of the above calculations
